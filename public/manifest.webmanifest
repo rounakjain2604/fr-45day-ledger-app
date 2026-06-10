@@ -1,0 +1,19 @@
+{
+  "name": "FR 45-Day Ledger",
+  "short_name": "FR Ledger",
+  "description": "A 45-day Financial Reporting study ledger for CA Final.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101412",
+  "theme_color": "#101412",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

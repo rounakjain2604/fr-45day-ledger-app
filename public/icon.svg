@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">FR 45-Day Ledger icon</title>
+  <rect width="512" height="512" rx="96" fill="#101412"/>
+  <rect x="86" y="86" width="340" height="340" rx="28" fill="#fff9ec"/>
+  <path d="M128 166h256M128 224h256M128 282h256M128 340h184" stroke="#d8cdb7" stroke-width="14" stroke-linecap="round"/>
+  <path d="M153 166h55M153 224h55M153 282h55M153 340h55" stroke="#2f7f63" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="352" cy="344" r="48" fill="#2f7f63"/>
+  <path d="m331 345 15 16 34-38" fill="none" stroke="#07110b" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
