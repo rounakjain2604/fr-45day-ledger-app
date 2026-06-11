@@ -1,7 +1,7 @@
 {
-  "name": "FR 45-Day Ledger",
+  "name": "FR Study OS",
   "short_name": "FR Ledger",
-  "description": "A 45-day Financial Reporting study ledger for CA Final.",
+  "description": "A CA Final Financial Reporting study OS with chapter dashboards, AI tutor, and 45-day ledger.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
