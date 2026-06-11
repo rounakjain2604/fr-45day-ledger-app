@@ -1,0 +1,19 @@
+{
+  "name": "FR Study OS",
+  "short_name": "FR Ledger",
+  "description": "A CA Final Financial Reporting study OS with chapter dashboards, AI tutor, and 45-day ledger.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101412",
+  "theme_color": "#101412",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

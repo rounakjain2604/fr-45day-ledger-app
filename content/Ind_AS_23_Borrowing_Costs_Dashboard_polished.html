@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ind AS 23 · Borrowing Costs — Mastery Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F6F3; --card:#FFFFFF; --ink:#1C2127; --ink2:#4B535C; --ink3:#8A929B;
+  --line:#E1E4DD; --line2:#D2D6CE;
+  --cap:#0E7466; --cap-bg:#EAF4F1; --cap-line:#BFDED6;
+  --exp:#A8590B; --exp-bg:#FBF2E7; --exp-line:#EBD3B4;
+  --gold:#8C6A1D; --danger:#A33B2E;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Inter',-apple-system,system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+::selection{background:var(--cap);color:#fff}
+
+/* ---------- shell ---------- */
+.shell{display:grid;grid-template-columns:218px 1fr;max-width:1240px;margin:0 auto;gap:0}
+.rail{position:sticky;top:0;height:100vh;overflow-y:auto;padding:26px 18px 26px 22px;border-right:1px solid var(--line);scrollbar-width:thin}
+.main{padding:30px 44px 120px;min-width:0}
+
+.brand{font-family:var(--serif);font-size:21px;line-height:1.15;letter-spacing:.01em}
+.brand em{color:var(--cap);font-style:italic}
+.brand-sub{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+.progress-wrap{margin:18px 0 20px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.progress-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--ink2);margin-bottom:7px}
+.progress-bar{height:5px;background:var(--line);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--cap),#15937F);border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.nav{display:flex;flex-direction:column;gap:1px}
+.nav a{display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:7px;color:var(--ink2);text-decoration:none;font-size:12.8px;font-weight:500;transition:background .15s,color .15s}
+.nav a:hover{background:#ECEEE8;color:var(--ink)}
+.nav a.active{background:var(--ink);color:#fff}
+.nav .fol{font-family:var(--mono);font-size:9.5px;color:var(--ink3);width:26px;flex-shrink:0}
+.nav a.active .fol{color:rgba(255,255,255,.55)}
+.nav .tick{margin-left:auto;width:14px;height:14px;border:1.5px solid var(--line2);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;transition:all .2s}
+.nav a.done .tick{background:var(--cap);border-color:var(--cap);color:#fff}
+
+/* ---------- sections ---------- */
+section{margin-bottom:64px;scroll-margin-top:24px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--ink);padding-bottom:10px;margin-bottom:22px}
+.sec-head .folio{font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.06em}
+.sec-head h2{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:.005em}
+.sec-head .done-btn{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:5px 12px;border:1px solid var(--line2);border-radius:99px;background:var(--card);color:var(--ink2);cursor:pointer;transition:all .2s;white-space:nowrap}
+.sec-head .done-btn:hover{border-color:var(--cap);color:var(--cap)}
+.sec-head .done-btn.on{background:var(--cap);border-color:var(--cap);color:#fff}
+.lede{font-size:15px;color:var(--ink2);max-width:680px;margin-bottom:20px}
+.lede strong{color:var(--ink)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.card h3{font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:8px}
+.card h3 .pno{font-family:var(--mono);font-weight:500;font-size:10px;color:var(--ink3);margin-left:6px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:920px){.grid2,.grid3{grid-template-columns:1fr}}
+
+.tag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:5px;font-weight:500}
+.tag.cap{background:var(--cap-bg);color:var(--cap);border:1px solid var(--cap-line)}
+.tag.exp{background:var(--exp-bg);color:var(--exp);border:1px solid var(--exp-line)}
+.tag.ntr{background:#EEF0EA;color:var(--ink2);border:1px solid var(--line)}
+
+ul.tight{padding-left:18px;color:var(--ink2)}
+ul.tight li{margin-bottom:5px}
+ul.tight li::marker{color:var(--cap)}
+ul.tight strong{color:var(--ink)}
+
+.note{border-left:3px solid var(--gold);background:#FBF7EC;padding:11px 14px;border-radius:0 9px 9px 0;font-size:13.5px;color:#574A23;margin-top:12px}
+.note b{color:#3E350F}
+.trap{border-left:3px solid var(--danger);background:#FAEFEC;padding:11px 14px;border-radius:0 9px 9px 0;font-size:13.5px;color:#5E2A21;margin-top:12px}
+.trap b{color:#48190F}
+
+table.tbl{width:100%;border-collapse:collapse;font-size:13px}
+table.tbl th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:500;padding:7px 10px;border-bottom:1px solid var(--ink)}
+table.tbl td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+table.tbl td:first-child{color:var(--ink);font-weight:500}
+table.tbl tr:last-child td{border-bottom:none}
+.num{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+
+/* core principle split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media(max-width:920px){.split{grid-template-columns:1fr}}
+.split .half{border-radius:12px;padding:20px;border:1px solid}
+.half.capside{background:var(--cap-bg);border-color:var(--cap-line)}
+.half.expside{background:var(--exp-bg);border-color:var(--exp-line)}
+.half .big{font-family:var(--serif);font-size:23px;margin:6px 0 8px}
+.half.capside .big{color:var(--cap)}
+.half.expside .big{color:var(--exp)}
+.half p{font-size:13.5px;color:var(--ink2)}
+
+/* flip cards */
+.flips{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:920px){.flips{grid-template-columns:1fr}}
+.flip{border:1px solid var(--line);border-radius:11px;background:var(--card);padding:15px 17px;cursor:pointer;transition:border-color .2s}
+.flip:hover{border-color:var(--ink3)}
+.flip .q{font-weight:600;font-size:13.5px;display:flex;gap:8px;align-items:baseline}
+.flip .q .fno{font-family:var(--mono);font-size:10px;color:var(--ink3);flex-shrink:0}
+.flip .a{display:none;margin-top:9px;padding-top:9px;border-top:1px dashed var(--line2);font-size:13.5px;color:var(--ink2)}
+.flip.open .a{display:block}
+.flip .hint{font-family:var(--mono);font-size:9.5px;color:var(--ink3);letter-spacing:.08em;margin-top:7px;text-transform:uppercase}
+.flip.open .hint{display:none}
+
+/* drill */
+.drill-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;text-align:center}
+.drill-q{font-family:var(--serif);font-size:20px;max-width:560px;margin:8px auto 16px;min-height:58px}
+.drill-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{font-family:var(--sans);font-size:13px;font-weight:600;padding:9px 20px;border-radius:9px;border:1px solid var(--line2);background:var(--card);cursor:pointer;transition:all .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.bcap{background:var(--cap);border-color:var(--cap);color:#fff}
+.btn.bexp{background:var(--exp);border-color:var(--exp);color:#fff}
+.btn.ghost{background:transparent}
+.btn.ghost:hover{border-color:var(--ink)}
+.drill-fb{margin-top:14px;font-size:13.5px;min-height:44px;color:var(--ink2)}
+.drill-fb .ok{color:var(--cap);font-weight:600}
+.drill-fb .no{color:var(--danger);font-weight:600}
+.drill-score{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-top:6px}
+
+/* calculators */
+.calc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.calc h3{font-size:13px;font-weight:600;margin-bottom:4px}
+.calc .sub{font-size:12.5px;color:var(--ink3);margin-bottom:14px}
+.calc label{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);display:block;margin-bottom:4px}
+.calc input{font-family:var(--mono);font-size:13px;padding:7px 10px;border:1px solid var(--line2);border-radius:7px;width:100%;background:#FBFBF9;color:var(--ink)}
+.calc input:focus{outline:none;border-color:var(--cap)}
+.crow{display:grid;gap:10px;margin-bottom:10px}
+.result-line{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--line2);font-size:13px;color:var(--ink2)}
+.result-line:last-child{border-bottom:none}
+.result-line .num{font-weight:500;color:var(--ink)}
+.result-final{background:var(--cap-bg);border:1px solid var(--cap-line);border-radius:9px;padding:11px 14px;margin-top:12px;display:flex;justify-content:space-between;align-items:center}
+.result-final .lab{font-size:12.5px;font-weight:600;color:var(--cap)}
+.result-final .num{font-size:16px;font-weight:600;color:var(--cap)}
+.result-exp{background:var(--exp-bg);border:1px solid var(--exp-line);border-radius:9px;padding:9px 14px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
+.result-exp .lab{font-size:12.5px;font-weight:600;color:var(--exp)}
+.result-exp .num{font-size:14px;font-weight:600;color:var(--exp)}
+
+/* timeline */
+.tline{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:18px 0;position:relative}
+@media(max-width:920px){.tline{grid-template-columns:1fr}}
+.tl-node{padding:16px 18px;border:1px solid var(--line);background:var(--card);position:relative}
+.tl-node:first-child{border-radius:12px 0 0 12px}
+.tl-node:last-child{border-radius:0 12px 12px 0}
+.tl-node+.tl-node{border-left:none}
+@media(max-width:920px){.tl-node{border-radius:12px!important;border-left:1px solid var(--line)!important;margin-bottom:10px}}
+.tl-node .ph{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cap);font-weight:600}
+.tl-node h4{font-family:var(--serif);font-size:19px;margin:4px 0 7px}
+.tl-node p{font-size:12.8px;color:var(--ink2)}
+
+/* accordions (TYK) */
+.acc{border:1px solid var(--line);border-radius:11px;background:var(--card);margin-bottom:10px;overflow:hidden}
+.acc-h{padding:14px 18px;cursor:pointer;display:flex;gap:12px;align-items:baseline}
+.acc-h:hover{background:#FBFBF8}
+.acc-h .qn{font-family:var(--mono);font-size:10.5px;color:var(--cap);font-weight:600;flex-shrink:0;letter-spacing:.05em}
+.acc-h .qt{font-size:13.5px;font-weight:600;flex:1}
+.acc-h .chev{font-family:var(--mono);color:var(--ink3);transition:transform .2s}
+.acc.open .chev{transform:rotate(90deg)}
+.acc-b{display:none;padding:0 18px 18px;font-size:13.5px;color:var(--ink2)}
+.acc.open .acc-b{display:block}
+.acc-b .soln{margin-top:10px;border-top:1px solid var(--line);padding-top:12px}
+.acc-b .soln-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cap);font-weight:600;margin-bottom:6px}
+.acc-b p{margin-bottom:8px}
+.acc-b table.tbl{margin:8px 0}
+
+/* quiz */
+.quiz-shell{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
+.q-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--ink3);margin-bottom:12px;letter-spacing:.06em}
+.q-text{font-family:var(--serif);font-size:19.5px;line-height:1.4;margin-bottom:16px}
+.q-opts{display:flex;flex-direction:column;gap:8px}
+.q-opt{padding:11px 14px;border:1px solid var(--line2);border-radius:9px;cursor:pointer;font-size:13.5px;transition:all .15s;display:flex;gap:10px;align-items:baseline}
+.q-opt:hover{border-color:var(--ink3);background:#FBFBF8}
+.q-opt .ol{font-family:var(--mono);font-size:10.5px;color:var(--ink3);flex-shrink:0}
+.q-opt.correct{background:var(--cap-bg);border-color:var(--cap);color:var(--cap)}
+.q-opt.wrong{background:var(--exp-bg);border-color:var(--danger);color:var(--danger)}
+.q-opt.dim{opacity:.45;pointer-events:none}
+.q-expl{display:none;margin-top:14px;padding:12px 14px;background:#F2F4EF;border-radius:9px;font-size:13px;color:var(--ink2)}
+.q-expl b{color:var(--ink)}
+.q-foot{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+.q-score{font-family:var(--mono);font-size:11.5px;color:var(--ink2)}
+.quiz-done{text-align:center;padding:30px 10px}
+.quiz-done .big{font-family:var(--serif);font-size:40px;color:var(--cap)}
+.quiz-done p{color:var(--ink2);margin:8px 0 16px}
+
+/* formula chips */
+.formula{font-family:var(--mono);font-size:12.5px;background:#20262D;color:#D7E5DF;padding:13px 16px;border-radius:10px;overflow-x:auto;line-height:1.7;margin:10px 0}
+.formula .hl{color:#6FD3BF}
+.formula .dim{color:#7C8893}
+
+.kicker{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+.hero{padding:34px 0 8px;margin-bottom:42px;border-bottom:1px solid var(--ink)}
+.hero h1{font-family:var(--serif);font-size:54px;font-weight:400;line-height:1.04;letter-spacing:-.005em;max-width:760px}
+.hero h1 em{font-style:italic;color:var(--cap)}
+.hero .strap{margin-top:14px;font-size:15px;color:var(--ink2);max-width:640px}
+.hero-stats{display:flex;gap:26px;margin:22px 0 26px;flex-wrap:wrap}
+.hstat .n{font-family:var(--mono);font-size:21px;font-weight:600;color:var(--ink)}
+.hstat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+
+footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10.5px;color:var(--ink3);line-height:1.8}
+
+@media(max-width:920px){
+  .shell{grid-template-columns:1fr}
+  .rail{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:18px}
+  .nav{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px}
+  .nav a{white-space:nowrap;flex-shrink:0}
+  .nav .tick{display:none}
+  .main{padding:24px 18px 90px}
+  .hero h1{font-size:36px}
+  .sec-head h2{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+
+/* ---------- visual refresh ---------- */
+:root{
+  --paper:#F6F1E8;
+  --card:#FFFDF8;
+  --ink:#16202A;
+  --ink2:#485561;
+  --ink3:#7D8791;
+  --line:#E5DAC9;
+  --line2:#D8C8B2;
+  --cap:#087467;
+  --cap-bg:#E5F3EF;
+  --cap-line:#A9D8CF;
+  --exp:#B15A23;
+  --exp-bg:#FFF0E3;
+  --exp-line:#E7BD97;
+  --gold:#A57B1F;
+  --danger:#A74736;
+  --shadow:0 18px 45px rgba(54,42,25,.09);
+  --shadow-sm:0 10px 26px rgba(54,42,25,.07);
+}
+body{
+  background:
+    linear-gradient(90deg,rgba(8,116,103,.045) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(177,90,35,.045) 1px,transparent 1px),
+    linear-gradient(135deg,#F9F5ED 0%,#F1EEE5 48%,#F6F1E8 100%);
+  background-size:32px 32px,32px 32px,100% 100%;
+  overflow-x:hidden;
+}
+.shell{max-width:1380px;grid-template-columns:252px minmax(0,1fr);min-width:0}
+.rail{
+  margin:18px 0 18px 18px;
+  height:calc(100vh - 36px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  background:linear-gradient(180deg,#18252B 0%,#111A20 100%);
+  box-shadow:0 24px 70px rgba(14,21,26,.18);
+  color:#EEF5F1;
+}
+.brand{font-size:24px;color:#fff}
+.brand em{color:#66D0BE}
+.brand-sub{color:rgba(238,245,241,.56)}
+.progress-wrap{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12)}
+.progress-label{color:rgba(238,245,241,.74)}
+.progress-bar{background:rgba(255,255,255,.12)}
+.progress-fill{background:linear-gradient(90deg,#55C9B7,#F2C66B)}
+.nav a{color:rgba(238,245,241,.72)}
+.nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.nav a.active{background:#F5C15F;color:#172028}
+.nav .fol{color:rgba(238,245,241,.42)}
+.nav a.active .fol{color:rgba(23,32,40,.64)}
+.nav .tick{border-color:rgba(255,255,255,.22)}
+.nav a.done .tick{background:#55C9B7;border-color:#55C9B7;color:#112027}
+.main{padding:34px 52px 120px;min-width:0;width:100%;max-width:100%;overflow-x:hidden}
+.hero{
+  position:relative;
+  padding:0;
+  margin-bottom:48px;
+  border-bottom:none;
+  min-width:0;
+  max-width:100%;
+}
+.hero-inner{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(310px,.75fr);
+  gap:28px;
+  align-items:stretch;
+  padding:34px;
+  border:1px solid rgba(229,218,201,.86);
+  border-radius:22px;
+  background:
+    linear-gradient(135deg,rgba(255,253,248,.96),rgba(255,248,237,.9)),
+    linear-gradient(90deg,rgba(8,116,103,.08),rgba(242,198,107,.08));
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  width:100%;
+  max-width:100%;
+}
+.hero-inner:before{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border-radius:21px;
+  background:linear-gradient(115deg,rgba(255,255,255,.64),transparent 44%);
+  pointer-events:none;
+}
+.hero-copy,.hero-panel{position:relative;z-index:1;min-width:0}
+.kicker{color:#90713F;font-weight:600}
+.hero h1{font-size:64px;max-width:860px;color:#121C24;letter-spacing:0;overflow-wrap:break-word}
+.hero h1 em{color:var(--cap)}
+.hero .strap{font-size:16px;line-height:1.72;max-width:720px;color:#44515B}
+.hero-stats{gap:10px;margin:28px 0 0}
+.hstat{
+  min-width:112px;
+  padding:12px 14px;
+  border:1px solid rgba(216,200,178,.8);
+  border-radius:12px;
+  background:rgba(255,255,255,.62);
+  box-shadow:0 8px 20px rgba(54,42,25,.04);
+}
+.hstat .n{font-size:23px;color:#172028}
+.hstat .l{color:#7C6B54}
+.hero-panel{
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:340px;
+  padding:22px;
+  border:1px solid rgba(8,116,103,.16);
+  border-radius:18px;
+  background:#102027;
+  color:#EEF8F4;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+.panel-eyebrow{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#7DDEC9;
+}
+.panel-title{font-family:var(--serif);font-size:30px;line-height:1.05;margin:8px 0 18px;color:#fff}
+.flow-steps{display:grid;gap:10px}
+.flow-step{
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:10px;
+  align-items:center;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  background:rgba(255,255,255,.06);
+}
+.flow-step .dot{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  background:#F5C15F;
+  color:#172028;
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:700;
+}
+.flow-step b{display:block;font-size:13px;color:#fff}
+.flow-step span{display:block;font-size:12px;color:rgba(238,248,244,.68);line-height:1.35}
+.panel-foot{
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.12);
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(238,248,244,.62);
+}
+section{margin-bottom:76px}
+.sec-head{
+  align-items:center;
+  border-bottom:none;
+  padding-bottom:0;
+  margin-bottom:20px;
+}
+.sec-head .folio{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:0 10px;
+  border:1px solid var(--line2);
+  border-radius:999px;
+  background:rgba(255,253,248,.76);
+  color:#8B6B39;
+}
+.sec-head h2{font-size:34px;color:#18222B}
+.sec-head .done-btn{
+  border-color:#CBB795;
+  background:#FFF9EE;
+  color:#7D6333;
+  box-shadow:0 6px 14px rgba(54,42,25,.05);
+}
+.sec-head .done-btn:hover{background:#F7E9CF;border-color:#C89A3C;color:#553D0E}
+.sec-head .done-btn.on{background:#087467;border-color:#087467;color:#fff}
+.lede{font-size:15.5px;line-height:1.72;color:#53606A}
+.card,.calc,.drill-box,.quiz-shell,.acc,.flip{
+  background:rgba(255,253,248,.94);
+  border-color:rgba(216,200,178,.9);
+  box-shadow:var(--shadow-sm);
+}
+.card{border-radius:14px;padding:20px 22px}
+.card:hover,.flip:hover,.acc:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 42px rgba(54,42,25,.11);
+}
+.card,.flip,.acc{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+.card h3{font-size:13.5px;color:#172028}
+.tag{border-radius:999px;padding:4px 10px}
+.tag.cap{background:#DFF3EE;color:#096E62;border-color:#A4D7CE}
+.tag.exp{background:#FFF0E3;color:#A34E18;border-color:#E4B589}
+.tag.ntr{background:#F3EBDD;color:#65563D;border-color:#DDD0B9}
+.split .half{border-radius:16px;box-shadow:var(--shadow-sm)}
+.half.capside{background:linear-gradient(135deg,#E5F4F0,#F9FEFB)}
+.half.expside{background:linear-gradient(135deg,#FFF0E3,#FFFDF8)}
+.half .big{font-size:28px}
+.note,.trap{border-radius:0 13px 13px 0;box-shadow:0 12px 24px rgba(54,42,25,.05)}
+.note{background:#FFF5D8}
+.trap{background:#FFF0EC}
+table.tbl{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#FFFDF8;
+}
+table.tbl th{background:#F4EBDC;color:#806943;border-bottom-color:#D7C4A4}
+table.tbl td{border-bottom-color:#E9DDCB}
+.formula{background:linear-gradient(135deg,#142129,#202B32);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.calc{border-radius:16px}
+.calc input{
+  min-height:38px;
+  background:#FFFCF5;
+  border-color:#D6C4A9;
+  transition:border-color .15s,box-shadow .15s,background .15s;
+}
+.calc input:focus{background:#fff;box-shadow:0 0 0 4px rgba(8,116,103,.11)}
+.result-final{background:#E2F4EF;border-color:#9ED5CB}
+.result-exp{background:#FFF0E4;border-color:#E8B88F}
+.btn{
+  min-height:40px;
+  border-radius:11px;
+  box-shadow:0 8px 18px rgba(54,42,25,.06);
+}
+.btn.bcap{background:linear-gradient(180deg,#0A806F,#086B60)}
+.btn.bexp{background:linear-gradient(180deg,#BD642A,#9F4A18)}
+.btn.ghost{background:#FFF9EE}
+.q-opt{border-radius:12px;background:#FFFDF8}
+.q-opt:hover{background:#FFF8EB}
+.q-expl{background:#F2EBDD}
+.tl-node{background:#FFFDF8;box-shadow:var(--shadow-sm)}
+footer{color:#7D735F}
+@media(max-width:1100px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero h1{font-size:50px}
+  .hero-panel{min-height:0}
+}
+@media(max-width:920px){
+  body{background-size:26px 26px,26px 26px,100% 100%}
+  .shell{grid-template-columns:1fr}
+  .rail{
+    position:relative;
+    height:auto;
+    margin:0;
+    border-radius:0;
+    border-left:none;
+    border-right:none;
+    border-top:none;
+    width:100%;
+    max-width:100vw;
+    overflow-x:hidden;
+  }
+  .nav{max-width:100%;min-width:0}
+  .main{padding:22px 16px 90px}
+  .hero-inner{padding:22px;border-radius:18px}
+  .hero-inner:before{border-radius:17px}
+  .hero h1{font-size:34px;line-height:1.08}
+  .hero-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hstat{min-width:0}
+  .sec-head{align-items:flex-start;gap:10px;flex-wrap:wrap}
+  .sec-head h2{font-size:27px}
+  .sec-head .done-btn{margin-left:0}
+}
+@media(max-width:520px){
+  .hero h1{font-size:31px}
+  .hero .strap{font-size:15px}
+  .hero-stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ============ RAIL ============ -->
+<aside class="rail">
+  <div class="brand">Borrowing<br>Costs <em>Ledger</em></div>
+  <div class="brand-sub">Ind AS 23 · FR · CA Final</div>
+  <div class="progress-wrap">
+    <div class="progress-label"><span>MASTERY</span><span id="progPct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+  </div>
+  <nav class="nav" id="nav">
+    <a href="#map" data-sec="map"><span class="fol">¶ 0</span>The Map<span class="tick">✓</span></a>
+    <a href="#core" data-sec="core"><span class="fol">3.1</span>Core Principle<span class="tick">✓</span></a>
+    <a href="#scope" data-sec="scope"><span class="fol">3.2</span>Scope<span class="tick">✓</span></a>
+    <a href="#defs" data-sec="defs"><span class="fol">3.3</span>Definitions<span class="tick">✓</span></a>
+    <a href="#forex" data-sec="forex"><span class="fol">3.4</span>Forex Differences<span class="tick">✓</span></a>
+    <a href="#recog" data-sec="recog"><span class="fol">3.5</span>Specific &amp; General<span class="tick">✓</span></a>
+    <a href="#period" data-sec="period"><span class="fol">3.6</span>Period of Capitalisation<span class="tick">✓</span></a>
+    <a href="#disc" data-sec="disc"><span class="fol">3.7</span>Disclosure<span class="tick">✓</span></a>
+    <a href="#special" data-sec="special"><span class="fol">3.8</span>Special Situations<span class="tick">✓</span></a>
+    <a href="#vs" data-sec="vs"><span class="fol">3.10</span>vs AS 16<span class="tick">✓</span></a>
+    <a href="#drill" data-sec="drill"><span class="fol">⚡</span>Rapid Drill<span class="tick">✓</span></a>
+    <a href="#tyk" data-sec="tyk"><span class="fol">TYK</span>ICAI Practicals<span class="tick">✓</span></a>
+    <a href="#quiz" data-sec="quiz"><span class="fol">MCQ</span>Quiz Bank<span class="tick">✓</span></a>
+    <a href="#traps" data-sec="traps"><span class="fol">⚠</span>Exam Traps<span class="tick">✓</span></a>
+  </nav>
+</aside>
+
+<!-- ============ MAIN ============ -->
+<main class="main">
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="kicker">Financial Reporting · Chapter 6, Unit 3 · ICAI Study Material</div>
+      <h1>Every rupee of interest is either <em>capitalised</em> or <em>expensed</em>. This standard decides which.</h1>
+      <p class="strap">One core principle, two routes (specific vs general borrowings), three commencement conditions, one ceiling. Work through each section, mark it done, then drill the practicals and MCQs until the score says you're exam-ready.</p>
+      <div class="hero-stats">
+        <div class="hstat"><div class="n">14</div><div class="l">Sections</div></div>
+        <div class="hstat"><div class="n">11</div><div class="l">Illustrations</div></div>
+        <div class="hstat"><div class="n">8</div><div class="l">ICAI Practicals</div></div>
+        <div class="hstat"><div class="n">20</div><div class="l">MCQs</div></div>
+        <div class="hstat"><div class="n">3</div><div class="l">Live Calculators</div></div>
+      </div>
+    </div>
+    <div class="hero-panel" aria-label="Borrowing cost decision flow">
+      <div>
+        <div class="panel-eyebrow">Decision Flow</div>
+        <div class="panel-title">From cost incurred to exam answer</div>
+        <div class="flow-steps">
+          <div class="flow-step"><span class="dot">01</span><div><b>Qualifying asset?</b><span>Substantial time to be ready for use or sale.</span></div></div>
+          <div class="flow-step"><span class="dot">02</span><div><b>Attributable borrowing?</b><span>Specific loan, general pool, lease interest, eligible FX.</span></div></div>
+          <div class="flow-step"><span class="dot">03</span><div><b>Period open?</b><span>Commence, suspend, and cease at the right dates.</span></div></div>
+          <div class="flow-step"><span class="dot">04</span><div><b>Apply ceiling.</b><span>Never capitalise beyond actual borrowing costs incurred.</span></div></div>
+        </div>
+      </div>
+      <div class="panel-foot">Specific · General · Forex · Disclosure</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 0 MAP ============ -->
+<section id="map">
+  <div class="sec-head"><span class="folio">¶ 0</span><h2>The Map</h2><button class="done-btn" data-done="map">mark done</button></div>
+  <p class="lede">Hold this skeleton in your head. Every question in this chapter lands on exactly one of these six nodes.</p>
+  <div class="grid3">
+    <div class="card"><span class="tag cap">Node 1</span><h3 style="margin-top:8px">Core principle</h3><p style="font-size:13px;color:var(--ink2)">Directly attributable to a qualifying asset → capitalise. Everything else → expense when incurred.</p></div>
+    <div class="card"><span class="tag ntr">Node 2</span><h3 style="margin-top:8px">Scope exclusions</h3><p style="font-size:13px;color:var(--ink2)">Cost of equity is never in. QAs at fair value &amp; mass-produced repetitive inventories are optionally exempt.</p></div>
+    <div class="card"><span class="tag ntr">Node 3</span><h3 style="margin-top:8px">What counts as BC &amp; QA</h3><p style="font-size:13px;color:var(--ink2)">EIR interest, lease interest (Ind AS 116), eligible forex differences. QA = substantial time to get ready.</p></div>
+    <div class="card"><span class="tag cap">Node 4</span><h3 style="margin-top:8px">How much</h3><p style="font-size:13px;color:var(--ink2)">Specific: actual cost less temporary investment income. General: capitalisation rate × expenditure. Ceiling: actual costs incurred.</p></div>
+    <div class="card"><span class="tag cap">Node 5</span><h3 style="margin-top:8px">When</h3><p style="font-size:13px;color:var(--ink2)">Commence on the latest of three conditions. Suspend on extended interruption. Cease when substantially complete.</p></div>
+    <div class="card"><span class="tag ntr">Node 6</span><h3 style="margin-top:8px">Disclose</h3><p style="font-size:13px;color:var(--ink2)">Amount capitalised in the period + the capitalisation rate used. Just two items.</p></div>
+  </div>
+</section>
+
+<!-- ============ 3.1 CORE ============ -->
+<section id="core">
+  <div class="sec-head"><span class="folio">¶ 3.1</span><h2>Core Principle</h2><button class="done-btn" data-done="core">mark done</button></div>
+  <div class="split">
+    <div class="half capside">
+      <span class="tag cap">Capitalise</span>
+      <div class="big">Directly attributable costs</div>
+      <p>Borrowing costs directly attributable to the <b>acquisition, construction or production of a qualifying asset</b> are included in the cost of that asset — capitalisation is <b>mandatory</b>, not a choice, once conditions are met: (i) probable future economic benefits, and (ii) costs can be measured reliably.</p>
+    </div>
+    <div class="half expside">
+      <span class="tag exp">Expense</span>
+      <div class="big">All other borrowing costs</div>
+      <p>Recognised as an <b>expense in the period in which they are incurred</b>. There is no third route — no deferral, no reserve, no equity adjustment.</p>
+    </div>
+  </div>
+  <div class="note"><b>Litmus test the standard uses:</b> eligible borrowing costs are those that <b>would have been avoided</b> had the expenditure on the qualifying asset not been made. Every tricky question resolves against this test.</div>
+</section>
+
+<!-- ============ 3.2 SCOPE ============ -->
+<section id="scope">
+  <div class="sec-head"><span class="folio">¶ 3.2</span><h2>Scope &amp; Exclusions</h2><button class="done-btn" data-done="scope">mark done</button></div>
+  <p class="lede">Two different kinds of "out of scope" — and the exam loves to blur them. One is an absolute exclusion; the other two are <strong>optional exemptions</strong> from the capitalisation requirement.</p>
+  <div class="grid3">
+    <div class="card">
+      <span class="tag exp">Absolute exclusion</span>
+      <h3 style="margin-top:8px">Cost of equity</h3>
+      <p style="font-size:13px;color:var(--ink2)">Actual or imputed cost of equity — including preference capital <b>not classified as a liability</b> — is never a borrowing cost. So: equity dividends, equity issue costs, dividend on equity-classified preference shares — all out. <span style="color:var(--ink3)">(Example 1)</span></p>
+    </div>
+    <div class="card">
+      <span class="tag ntr">Not required</span>
+      <h3 style="margin-top:8px">QA measured at fair value</h3>
+      <p style="font-size:13px;color:var(--ink2)">e.g. a biological asset under Ind AS 41. Capitalisation wouldn't change the balance sheet; it would merely reshuffle finance cost vs fair-value movement within P&amp;L.</p>
+    </div>
+    <div class="card">
+      <span class="tag ntr">Not required</span>
+      <h3 style="margin-top:8px">Repetitive mass inventories</h3>
+      <p style="font-size:13px;color:var(--ink2)">Inventories manufactured in <b>large quantities on a repetitive basis</b>. Rationale: allocating and monitoring borrowing costs across such inventories is impractical.</p>
+    </div>
+  </div>
+  <div class="trap"><b>Trap:</b> "exemption" ≠ "prohibition". Cheese with a long production cycle is mass-produced, so capitalisation is <b>not required</b> — but it is <b>permitted</b> because the cycle takes a substantial period (Illustration 1). Read the question stem: "required to" vs "can".</div>
+</section>
+
+<!-- ============ 3.3 DEFINITIONS ============ -->
+<section id="defs">
+  <div class="sec-head"><span class="folio">¶ 3.3</span><h2>Key Definitions</h2><button class="done-btn" data-done="defs">mark done</button></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Borrowing costs <span class="pno">interest + other costs on borrowing of funds</span></h3>
+      <ul class="tight">
+        <li><strong>Interest expense</strong> calculated using the <strong>effective interest rate method</strong> per Ind AS 109</li>
+        <li><strong>Interest on lease liabilities</strong> recognised per Ind AS 116</li>
+        <li><strong>Exchange differences</strong> on foreign-currency borrowings, only <strong>to the extent regarded as an adjustment to interest costs</strong></li>
+      </ul>
+      <div class="trap" style="margin-top:12px"><b>Not</b> dividends on equity, <b>not</b> notional interest on the entity's own cash. Ind AS 23 caps capitalisation at <b>actual</b> borrowing costs incurred.</div>
+    </div>
+    <div class="card">
+      <h3>Qualifying asset <span class="pno">necessarily takes substantial time to get ready for intended use or sale</span></h3>
+      <ul class="tight">
+        <li><strong>Can be:</strong> inventories, manufacturing plants, power generation facilities, intangible assets, investment properties, bearer plants</li>
+        <li><strong>Never:</strong> financial assets; inventories produced over a short period; assets <strong>ready for intended use or sale when acquired</strong></li>
+        <li><strong>"Substantial period":</strong> Ind AS 23 deliberately gives no bright line — facts and circumstances; 12 months or more is <em>likely</em> substantial</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The five definition illustrations — judgement calls</h3>
+    <div class="flips">
+      <div class="flip"><div class="q"><span class="fno">ILL 2</span>Computer software under development taking substantial time — qualifying asset? Does management intention matter?</div><div class="a"><b>Yes and yes.</b> An intangible taking substantial time to get ready is a QA. Management assesses at acquisition whether the asset is "ready for intended use" — if an acquired asset can only be used with a larger group of assets, or was acquired for constructing one specific QA, assess on a <b>combined basis</b>.</div><div class="hint">tap to reveal</div></div>
+      <div class="flip"><div class="q"><span class="fno">ILL 3</span>3G licence — could be sold to a third party, but management will use it to build a network. Capitalise borrowing costs on it?</div><div class="a"><b>Yes.</b> The licence is the first step of the wider network investment project — part of a qualifying asset. The fact it <i>could</i> be sold or licensed out is <b>irrelevant</b>; intended use governs.</div><div class="hint">tap to reveal</div></div>
+      <div class="flip"><div class="q"><span class="fno">ILL 4</span>Real estate co. buys (a) a permit for one building, (b) equipment usable across many projects. Capitalise on each?</div><div class="a"><b>Permit — yes:</b> specific to one building, first step of the wider project, part of the QA's cost. <b>Equipment — no:</b> usable for other projects, hence ready for its intended use on acquisition — not a QA.</div><div class="hint">tap to reveal</div></div>
+      <div class="flip"><div class="q"><span class="fno">ILL 5</span>Interest on a finance lease of a crane / dockyard used to build a ship — capitalise?</div><div class="a"><b>Yes.</b> Lease interest is capitalised if the leased asset is a QA <i>or is used solely to construct one</i>. The ship is the QA; lease interest on the crane is capitalised — but only <b>up to the point construction of the ship is complete</b>.</div><div class="hint">tap to reveal</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3.4 FOREX ============ -->
+<section id="forex">
+  <div class="sec-head"><span class="folio">¶ 3.4</span><h2>Exchange Differences</h2><button class="done-btn" data-done="forex">mark done</button></div>
+  <p class="lede">The most-tested computation. The logic: you borrowed in a foreign currency to save interest. The exchange loss is treated as borrowing cost <strong>only up to the interest you "saved"</strong> versus borrowing in your functional currency.</p>
+
+  <div class="formula">Eligible exchange difference = <span class="hl">min</span> [ Exchange loss , (Functional-currency interest <span class="dim">that would have been incurred</span> − Actual FC interest) ]<br><span class="dim">Total capitalisable BC can never exceed the functional-currency benchmark.</span></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Worked anchor — Illustration 6</h3>
+      <table class="tbl">
+        <tr><td>Loan USD 20,000 @ 5%, taken 1-Apr-20X1 at ₹45/$; closing ₹48/$. INR alternative: 11%.</td><td></td></tr>
+        <tr><td>(a) Actual interest: 20,000 × 5% × ₹48</td><td class="num">₹ 48,000</td></tr>
+        <tr><td>(b) INR benchmark: 20,000 × ₹45 × 11%</td><td class="num">₹ 99,000</td></tr>
+        <tr><td>(c) Headroom (b − a)</td><td class="num">₹ 51,000</td></tr>
+        <tr><td>Exchange loss: 20,000 × (48 − 45)</td><td class="num">₹ 60,000</td></tr>
+        <tr><td><b>Eligible exchange diff = min(60,000, 51,000)</b></td><td class="num"><b>₹ 51,000</b></td></tr>
+        <tr><td><span class="tag cap">Capitalise</span> 48,000 + 51,000</td><td class="num" style="color:var(--cap)"><b>₹ 99,000</b></td></tr>
+        <tr><td><span class="tag exp">Expense</span> balance loss</td><td class="num" style="color:var(--exp)"><b>₹ 9,000</b></td></tr>
+      </table>
+    </div>
+    <div class="calc">
+      <h3>Forex eligibility calculator</h3>
+      <div class="sub">Pre-loaded with Illustration 6 — change anything.</div>
+      <div class="crow" style="grid-template-columns:1fr 1fr">
+        <div><label>FC principal</label><input id="fxP" type="number" value="20000"></div>
+        <div><label>FC interest rate %</label><input id="fxR" type="number" value="5" step="0.1"></div>
+        <div><label>Opening rate ₹/FC</label><input id="fxO" type="number" value="45" step="0.01"></div>
+        <div><label>Closing rate ₹/FC</label><input id="fxC" type="number" value="48" step="0.01"></div>
+        <div><label>Functional ccy rate %</label><input id="fxL" type="number" value="11" step="0.1"></div>
+      </div>
+      <div id="fxOut"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The reversal rule — Example 2 &amp; 3 logic <span class="pno">subsequent gains claw back prior loss adjustments</span></h3>
+    <p style="font-size:13.5px;color:var(--ink2)">Where an <b>unrealised exchange loss</b> was treated as an adjustment to interest, and a <b>later realised or unrealised gain</b> arises on the <i>same borrowing</i>, the gain is recognised as an adjustment to interest — but only <b>to the extent of the loss previously recognised</b>.</p>
+    <ul class="tight" style="margin-top:8px">
+      <li>Example 2: $1,000 @ 4% at ₹40→₹50; INR rate 12%. Interest ₹2,000; benchmark ₹4,800; eligible loss capped at <b>₹2,800</b>; total BC = ₹4,800. If closing were ₹41: total FC cost ₹2,640 &lt; ₹4,800, so the <b>entire</b> ₹1,000 loss is eligible.</li>
+      <li>Example 3 (₹50→₹48): gain ₹2,000 adjusts interest, being &lt; prior ₹2,800 loss. (₹50→₹44): gain ₹6,000, but adjustment limited to <b>₹2,800</b>. On part repayment ($600 repaid): adjustment on the $400 balance limited to its share of prior loss, ₹1,120 (= 2,800 × 400/1,000).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 3.5 RECOGNITION ============ -->
+<section id="recog">
+  <div class="sec-head"><span class="folio">¶ 3.5</span><h2>Specific vs General Borrowings</h2><button class="done-btn" data-done="recog">mark done</button></div>
+
+  <div class="split">
+    <div class="half capside">
+      <span class="tag cap">Specific</span>
+      <div class="big">Borrowed for that asset</div>
+      <p>Capitalise <b>actual borrowing costs incurred</b> during the period <b>less investment income</b> on the temporary investment of those borrowings. Direct identification, no rate needed.</p>
+    </div>
+    <div class="half expside">
+      <span class="tag ntr" style="background:#fff">General</span>
+      <div class="big" style="color:var(--ink)">Pool of everything else</div>
+      <p>Capitalise <b>capitalisation rate × expenditure on the QA</b>. The rate is the <b>weighted average</b> cost of all general borrowings outstanding in the period — <b>excluding</b> specific borrowings until their asset is substantially complete.</p>
+    </div>
+  </div>
+
+  <div class="formula">Capitalisation rate = <span class="hl">Σ (weighted-avg borrowing costs on general borrowings)</span> ÷ <span class="hl">Σ (total general borrowings outstanding)</span><br>BC capitalised = Expenditure on QA × rate × time outstanding &nbsp;&nbsp;<span class="dim">|&nbsp; Ceiling: actual BC incurred in the period</span></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Illustration 7 — specific borrowing</h3>
+      <p style="font-size:13px;color:var(--ink2);margin-bottom:8px">₹30,00,000 @ 9% borrowed 1-Apr-20X1 for two buildings; idle funds parked @ 7% for 6 months (drawn ₹5L + ₹10L on 1-Apr; balance on 1-Oct).</p>
+      <table class="tbl">
+        <tr><th></th><th>Factory</th><th>Office</th></tr>
+        <tr><td>Borrowing cost @ 9%</td><td class="num">90,000</td><td class="num">1,80,000</td></tr>
+        <tr><td>Less: investment income @ 7% × 6/12</td><td class="num">(17,500)</td><td class="num">(35,000)</td></tr>
+        <tr><td><b>BC capitalised</b></td><td class="num"><b>72,500</b></td><td class="num"><b>1,45,000</b></td></tr>
+        <tr><td><b>Total asset cost</b></td><td class="num"><b>10,72,500</b></td><td class="num"><b>21,45,000</b></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Illustration 9 — general pool rate</h3>
+      <p style="font-size:13px;color:var(--ink2);margin-bottom:8px">18% bank loan ₹1,000k + 16% term loan ₹3,000k all year. 14% debentures ₹2,000k issued for an office building whose work hasn't started — <b>specific, so excluded</b>. Plant expenditure: ₹5,00,000 on 1-Apr; ₹25,00,000 on 1-Jan.</p>
+      <table class="tbl">
+        <tr><td>Rate = (18%×1,000 + 16%×3,000) ÷ 4,000</td><td class="num"><b>16.5%</b></td></tr>
+        <tr><td>5,00,000 × 16.5%</td><td class="num">82,500</td></tr>
+        <tr><td>25,00,000 × 16.5% × 3/12</td><td class="num">1,03,125</td></tr>
+        <tr><td><b>BC capitalised</b></td><td class="num"><b>1,85,625</b></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="calc" style="margin-bottom:14px">
+    <h3>Capitalisation-rate calculator</h3>
+    <div class="sub">Two general borrowings + two expenditure tranches (months = period outstanding to year-end). Pre-loaded with Illustration 9.</div>
+    <div class="crow" style="grid-template-columns:repeat(4,1fr)">
+      <div><label>Loan A amount</label><input id="gA" type="number" value="1000000"></div>
+      <div><label>Loan A rate %</label><input id="gAr" type="number" value="18" step="0.1"></div>
+      <div><label>Loan B amount</label><input id="gB" type="number" value="3000000"></div>
+      <div><label>Loan B rate %</label><input id="gBr" type="number" value="16" step="0.1"></div>
+      <div><label>Spend 1 amount</label><input id="e1" type="number" value="500000"></div>
+      <div><label>Spend 1 months</label><input id="e1m" type="number" value="12" min="0" max="12"></div>
+      <div><label>Spend 2 amount</label><input id="e2" type="number" value="2500000"></div>
+      <div><label>Spend 2 months</label><input id="e2m" type="number" value="3" min="0" max="12"></div>
+    </div>
+    <div id="gOut"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Illustration 8 — when specific turns general</h3>
+      <p style="font-size:13.5px;color:var(--ink2)">An 8% loan funded Building A, completed 31-Mar-20X3, but stays outstanding till 20X7. From completion, it <b>joins the general pool</b>: had cash not been spent on other QAs, it could have repaid this loan — so its cost is now "avoidable", i.e. directly attributable to the new Building B.</p>
+    </div>
+    <div class="card">
+      <h3>The expenditure base <span class="pno">¶ 3.5.3 – 3.5.4</span></h3>
+      <ul class="tight">
+        <li>Counts only expenditures via <strong>cash paid, transfers of other assets, or assumption of interest-bearing liabilities</strong></li>
+        <li><strong>Reduced by</strong> progress payments received and government grants (Ind AS 20)</li>
+        <li><strong>Average carrying amount</strong> during the period (incl. BC already capitalised) is a reasonable approximation of the base</li>
+        <li>If carrying amount / expected cost exceeds recoverable amount or NRV → <strong>write down per other standards</strong> (and write back where those standards permit)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3.6 PERIOD ============ -->
+<section id="period">
+  <div class="sec-head"><span class="folio">¶ 3.6</span><h2>Period of Capitalisation</h2><button class="done-btn" data-done="period">mark done</button></div>
+
+  <div class="tline">
+    <div class="tl-node"><div class="ph">Commence — ¶ 3.6.1</div><h4>Latest of three</h4><p>Begin on the date the entity <b>first meets all three</b>: (a) incurs expenditure for the asset, (b) incurs borrowing costs, (c) undertakes activities necessary to prepare the asset. Activities include technical &amp; administrative work pre-construction (e.g. permits) — but <b>not</b> merely holding an asset with no development.</p></div>
+    <div class="tl-node"><div class="ph">Suspend — ¶ 3.6.2</div><h4>Extended interruption</h4><p>Suspend during <b>extended periods</b> when active development is interrupted — those are costs of holding a part-finished asset. Do <b>not</b> suspend for temporary delays that are a <b>necessary part of the process</b>: seasonal high water on a bridge, inventory undergoing slow maturation.</p></div>
+    <div class="tl-node"><div class="ph">Cease — ¶ 3.6.3</div><h4>Substantially complete</h4><p>Stop when <b>substantially all activities</b> needed for intended use or sale are done — normally physical completion, even if routine admin or minor modifications (e.g. buyer's decoration) remain. Completed-in-parts: cease per part if each is usable alone (business park); whole-asset rule if sequential (steel mill).</p></div>
+  </div>
+
+  <div class="grid2">
+    <div class="calc">
+      <h3>Commencement-date checker</h3>
+      <div class="sub">Pre-loaded with Illustration 10. The answer is always the latest date.</div>
+      <div class="crow" style="grid-template-columns:1fr">
+        <div><label>(a) Expenditure incurred from</label><input id="d1" type="date" value="2001-06-19"></div>
+        <div><label>(b) Borrowing costs incurred from</label><input id="d2" type="date" value="2001-05-15"></div>
+        <div><label>(c) Necessary activities undertaken from</label><input id="d3" type="date" value="2001-06-02"></div>
+      </div>
+      <div id="dOut"></div>
+      <p style="font-size:12px;color:var(--ink3);margin-top:8px">Illustration 10: interest from 15-May, site planning from 2-Jun, expenditure from 19-Jun, construction 18-Jul → commencement <b>19-Jun-20X1</b>. Physical construction start is irrelevant once planning counts as "activities".</p>
+    </div>
+    <div class="card">
+      <h3>Cessation judgement calls</h3>
+      <ul class="tight">
+        <li><strong>Example 5 (H Ltd):</strong> commercial complex ready 31-May-20X1; only 10% rented by year-end. Capitalise <strong>only up to 31-May</strong> — occupancy is irrelevant; readiness governs.</li>
+        <li><strong>Example 4(a):</strong> construction halted Oct–Jan, equipment shifted to another site → <strong>suspend</strong>.</li>
+        <li><strong>Example 4(b):</strong> 20-day technical delay near completion → <strong>continue</strong> capitalising.</li>
+        <li><strong>Land:</strong> BC capitalised while land is <strong>under development</strong>; not while it is merely held for building with no activity.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3.7 DISCLOSURE ============ -->
+<section id="disc">
+  <div class="sec-head"><span class="folio">¶ 3.7</span><h2>Disclosure</h2><button class="done-btn" data-done="disc">mark done</button></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>Only two disclosures</h3>
+      <ul class="tight">
+        <li>(a) the <strong>amount of borrowing costs capitalised</strong> during the period</li>
+        <li>(b) the <strong>capitalisation rate</strong> used to determine the amount eligible for capitalisation</li>
+      </ul>
+      <div class="note" style="margin-top:12px"><b>Memory hook:</b> "How much, and at what rate." Note — disclosure of the rate is an Ind AS 23 requirement that <b>AS 16 does not have</b> (difference no. 9).</div>
+    </div>
+    <div class="card">
+      <h3>Live example — Larsen &amp; Toubro, FY 2021-22</h3>
+      <p style="font-size:13.5px;color:var(--ink2)">Additions to buildings / CWIP included <b>₹8.83 crore</b> of borrowing cost capitalised under Ind AS 23 (previous year ₹27.75 crore), and the capitalisation rate used was <b>6.23%</b> (previous year 5.71%). L&amp;T's policy: borrowing costs net of investment income on temporary investment of related borrowings are capitalised till the asset is ready; all other borrowing costs go to P&amp;L.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3.8 SPECIAL ============ -->
+<section id="special">
+  <div class="sec-head"><span class="folio">¶ 3.8</span><h2>Special Situations</h2><button class="done-btn" data-done="special">mark done</button></div>
+  <div class="flips">
+    <div class="flip"><div class="q"><span class="fno">3.8.1</span>Dividends on redeemable preference shares, redeemable at the holder's option — borrowing cost?</div><div class="a"><b>Yes.</b> Such shares are financial <b>liabilities</b> under Ind AS 32, so the dividend is in substance interest — it meets the borrowing-cost definition and is capitalised following the <b>specific borrowing</b> principles (Example 6). Contrast: dividend on equity-classified preference capital is excluded from scope.</div><div class="hint">tap to reveal</div></div>
+    <div class="flip"><div class="q"><span class="fno">3.8.2</span>Parent borrows, subsidiary builds the qualifying asset. Who capitalises what?</div><div class="a"><b>Group FS:</b> capitalise if the amount fairly reflects the group's interest cost on third-party borrowings that could have been avoided. <b>Subsidiary's own FS:</b> nothing — it has no borrowings. But if it takes an <b>intra-group loan</b>, it capitalises the actual costs it incurs on that loan (Illustration 11).</div><div class="hint">tap to reveal</div></div>
+    <div class="flip"><div class="q"><span class="fno">3.8.3</span>Whisky matures at 3 years but keeps improving. Keep capitalising borrowing costs after year 3?</div><div class="a"><b>Yes, conditionally.</b> If holding-to-mature is consistent with the business model and the item demonstrably keeps increasing in value <b>solely because of age</b> (not market movements or inflation), continue. If that can't be demonstrated, the stock is held-for-sale — stop capitalising (Example 7).</div><div class="hint">tap to reveal</div></div>
+    <div class="flip"><div class="q"><span class="fno">¶ 3.5</span>Hyperinflationary economy (Ind AS 29 applies) — full borrowing cost capitalised?</div><div class="a"><b>No.</b> The part of borrowing costs that <b>compensates for inflation</b> during the period is recognised as an <b>expense</b>, not capitalised.</div><div class="hint">tap to reveal</div></div>
+    <div class="flip"><div class="q"><span class="fno">TYK 7</span>Bonds issued at a discount fund a QA ready at end of year 2 of 4. How much discount/interest is capitalised?</div><div class="a">Borrowing cost = <b>EIR interest</b> on the carrying amount (transaction price ₹1,80,000 for the ₹2,00,000 bond at 10% discount). Capitalise years 1–2 only: ₹24,102 + ₹24,651 = <b>₹48,753</b>; years 3–4 EIR interest is expensed.</div><div class="hint">tap to reveal</div></div>
+    <div class="flip"><div class="q"><span class="fno">¶ 3.5.1.1</span>Entity uses its own cash to build a plant. Capitalise the interest the cash "could have earned"?</div><div class="a"><b>Never.</b> Notional borrowing costs cannot be capitalised; Ind AS 23 limits capitalisation to <b>actual</b> borrowing costs incurred, and does not address actual or imputed cost of equity.</div><div class="hint">tap to reveal</div></div>
+  </div>
+</section>
+
+<!-- ============ 3.10 VS AS16 ============ -->
+<section id="vs">
+  <div class="sec-head"><span class="folio">¶ 3.10</span><h2>Ind AS 23 vs AS 16</h2><button class="done-btn" data-done="vs">mark done</button></div>
+  <p class="lede">Ten differences in the study material. Tap each to test recall — these are direct theory marks.</p>
+  <div class="flips" id="vsFlips"></div>
+</section>
+
+<!-- ============ DRILL ============ -->
+<section id="drill">
+  <div class="sec-head"><span class="folio">⚡</span><h2>Rapid Drill — Capitalise or Not?</h2><button class="done-btn" data-done="drill">mark done</button></div>
+  <p class="lede">Every scenario below is lifted from the chapter's illustrations and examples. Answer on instinct, then read the reasoning. Target: a clean 14/14.</p>
+  <div class="drill-box">
+    <div class="kicker" id="drillCount">SCENARIO 1 / 14</div>
+    <div class="drill-q" id="drillQ"></div>
+    <div class="drill-btns">
+      <button class="btn bcap" onclick="drillAns(true)">Capitalise ✓</button>
+      <button class="btn bexp" onclick="drillAns(false)">Don't capitalise ✗</button>
+    </div>
+    <div class="drill-fb" id="drillFb"></div>
+    <div class="drill-score" id="drillScore">Score 0 / 0</div>
+    <button class="btn ghost" id="drillNext" style="margin-top:10px;display:none" onclick="drillAdvance()">Next scenario →</button>
+    <button class="btn ghost" id="drillReset" style="margin-top:10px;display:none" onclick="drillRestart()">Restart drill ↺</button>
+  </div>
+</section>
+
+<!-- ============ TYK ============ -->
+<section id="tyk">
+  <div class="sec-head"><span class="folio">TYK</span><h2>ICAI Practicals — full solutions</h2><button class="done-btn" data-done="tyk">mark done</button></div>
+  <p class="lede">All 8 Test-Your-Knowledge questions, verbatim figures. <strong>Attempt on paper first</strong>, then open the solution — this is where the writing practice comes from.</p>
+  <div id="tykList"></div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz">
+  <div class="sec-head"><span class="folio">MCQ</span><h2>Quiz Bank — 20 questions</h2><button class="done-btn" data-done="quiz">mark done</button></div>
+  <div class="quiz-shell" id="quizShell"></div>
+</section>
+
+<!-- ============ TRAPS ============ -->
+<section id="traps">
+  <div class="sec-head"><span class="folio">⚠</span><h2>Exam Trap Sheet</h2><button class="done-btn" data-done="traps">mark done</button></div>
+  <p class="lede">Read this the night before the paper. Each line is a place candidates routinely bleed marks.</p>
+  <div class="card"><ul class="tight">
+    <li><strong>Investment income is deducted only for specific borrowings.</strong> The general-borrowing computation is rate × expenditure — no income offset appears in it.</li>
+    <li><strong>The ceiling:</strong> capitalised BC in a period can never exceed actual BC incurred in that period (see TYK 6 — eligible ₹1,68,000 vs incurred ₹2,10,000; capitalise only ₹1,68,000 as it is lower).</li>
+    <li><strong>Exclude specific borrowings from the capitalisation-rate pool</strong> until their asset is substantially complete (Illustration 9's debentures) — and pull them <em>into</em> the pool once the asset is done but the loan is still outstanding (Illustration 8).</li>
+    <li><strong>Commencement = latest of the three conditions</strong>, and "activities" start with technical/admin work (planning, permits) — not physical construction (Illustration 10: 19-Jun, not 18-Jul).</li>
+    <li><strong>Mere holding ≠ activity.</strong> Land held for building with no development → no capitalisation; land under development → capitalise.</li>
+    <li><strong>Suspension vs necessary delay:</strong> equipment shifted away for months → suspend; routine seasonal high water or maturing inventory → continue.</li>
+    <li><strong>Cessation looks at readiness, not usage.</strong> H Ltd: complex ready 31-May, only 10% let out — capitalisation still stops 31-May.</li>
+    <li><strong>Forex cap:</strong> eligible exchange loss = headroom up to functional-currency benchmark interest; the excess is an FX loss in P&amp;L, not borrowing cost. Subsequent gains reverse only up to prior loss adjustments.</li>
+    <li><strong>Forex benchmark under Ind AS 23 is the functional currency</strong> (AS 16 / AS 11 compared local vs foreign currency).</li>
+    <li><strong>Substantial period:</strong> Ind AS 23 gives no definition (12 months is only a likely indicator); AS 16 explains it as twelve months. If a renovation completes within 12 months and management doesn't consider the period substantial, <strong>everything is expensed</strong> (TYK 8 alternate: full ₹68.20 lakh to P&amp;L).</li>
+    <li><strong>Working-capital portion of a "project" loan is not for a QA</strong> — apportion and expense it (TYK 8: 56/620 share = ₹6.16 lakh expensed).</li>
+    <li><strong>Notional interest on own funds — never.</strong> Cost of equity (incl. equity-classified preference dividend) — never. Liability-classified preference dividend — yes, as specific borrowing cost.</li>
+    <li><strong>Consolidation:</strong> eliminate intra-group profit margin from the QA expenditure base before applying the rate (TYK 6: 15,40,000 ÷ 1.1).</li>
+    <li><strong>Discounted bonds:</strong> capitalise EIR interest, not coupon, and only for the construction period (TYK 7: ₹48,753 over years 1–2).</li>
+    <li><strong>Repetitive inventories exemption is optional</strong> — capitalisation is permitted where the cycle is substantial (cheese, whisky), required nowhere, prohibited nowhere within that class.</li>
+  </ul></div>
+  <footer>Source: ICAI Study Material — Financial Reporting, Chapter 6 Unit 3, Ind AS 23 "Borrowing Costs" (incl. all illustrations, examples &amp; TYK Q1–Q8). Figures reproduced as printed. Built as a personal revision aid; not a substitute for the bare Act of the standard.<br>Progress saves in this browser where storage is available.</footer>
+</section>
+
+</main>
+</div>
+
+<script>
+/* ================= state & progress ================= */
+const SECS=['map','core','scope','defs','forex','recog','period','disc','special','vs','drill','tyk','quiz','traps'];
+let done={};
+try{done=JSON.parse(localStorage.getItem('indas23done')||'{}')}catch(e){done={}}
+function saveDone(){try{localStorage.setItem('indas23done',JSON.stringify(done))}catch(e){}}
+function renderProgress(){
+  const n=SECS.filter(s=>done[s]).length, pct=Math.round(n/SECS.length*100);
+  document.getElementById('progPct').textContent=pct+'%';
+  document.getElementById('progFill').style.width=pct+'%';
+  document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('done',!!done[a.dataset.sec]));
+  document.querySelectorAll('.done-btn').forEach(b=>{
+    const on=!!done[b.dataset.done];
+    b.classList.toggle('on',on); b.textContent=on?'done ✓':'mark done';
+  });
+}
+document.querySelectorAll('.done-btn').forEach(b=>b.addEventListener('click',()=>{
+  done[b.dataset.done]=!done[b.dataset.done]; saveDone(); renderProgress();
+}));
+renderProgress();
+
+/* active nav on scroll */
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){
+    document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('active',a.dataset.sec===e.target.id));
+  }});
+},{rootMargin:'-30% 0px -60% 0px'});
+SECS.forEach(s=>{const el=document.getElementById(s); if(el)obs.observe(el)});
+
+/* flips */
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.flip'); if(f)f.classList.toggle('open');
+  const a=e.target.closest('.acc-h'); if(a)a.parentElement.classList.toggle('open');
+});
+
+/* ================= forex calculator ================= */
+const inr=n=>'₹ '+Math.round(n).toLocaleString('en-IN');
+function fxCalc(){
+  const P=+fxP.value||0,R=(+fxR.value||0)/100,O=+fxO.value||0,C=+fxC.value||0,L=(+fxL.value||0)/100;
+  const actInt=P*R*C, bench=P*O*L, loss=P*(C-O), head=Math.max(0,bench-actInt);
+  const elig=loss>0?Math.min(loss,head):0, cap=actInt+elig, expd=Math.max(0,loss-elig);
+  fxOut.innerHTML=
+   `<div class="result-line"><span>Actual FC interest (P × r × closing rate)</span><span class="num">${inr(actInt)}</span></div>
+    <div class="result-line"><span>Functional-currency benchmark (P × opening × local r)</span><span class="num">${inr(bench)}</span></div>
+    <div class="result-line"><span>Exchange ${loss>=0?'loss':'gain'} on principal</span><span class="num">${inr(Math.abs(loss))}</span></div>
+    <div class="result-line"><span>Headroom (benchmark − actual interest)</span><span class="num">${inr(head)}</span></div>
+    <div class="result-line"><span>Eligible exchange difference = min(loss, headroom)</span><span class="num">${inr(elig)}</span></div>
+    <div class="result-final"><span class="lab">Capitalise as borrowing cost</span><span class="num">${inr(cap)}</span></div>
+    ${expd>0?`<div class="result-exp"><span class="lab">Expense to P&amp;L (excess FX loss)</span><span class="num">${inr(expd)}</span></div>`:''}`;
+}
+['fxP','fxR','fxO','fxC','fxL'].forEach(id=>document.getElementById(id).addEventListener('input',fxCalc));
+fxCalc();
+
+/* ================= cap-rate calculator ================= */
+function gCalc(){
+  const A=+gA.value||0,Ar=(+gAr.value||0)/100,B=+gB.value||0,Br=(+gBr.value||0)/100;
+  const E1=+e1.value||0,M1=Math.min(12,Math.max(0,+e1m.value||0)),E2=+e2.value||0,M2=Math.min(12,Math.max(0,+e2m.value||0));
+  const totB=A+B, totInt=A*Ar+B*Br, rate=totB?totInt/totB:0;
+  const c1=E1*rate*M1/12, c2=E2*rate*M2/12, raw=c1+c2, capd=Math.min(raw,totInt);
+  gOut.innerHTML=
+   `<div class="result-line"><span>Actual interest on general pool (the ceiling)</span><span class="num">${inr(totInt)}</span></div>
+    <div class="result-line"><span>Capitalisation rate (weighted average)</span><span class="num">${(rate*100).toFixed(3)}%</span></div>
+    <div class="result-line"><span>Spend 1: ${inr(E1)} × rate × ${M1}/12</span><span class="num">${inr(c1)}</span></div>
+    <div class="result-line"><span>Spend 2: ${inr(E2)} × rate × ${M2}/12</span><span class="num">${inr(c2)}</span></div>
+    <div class="result-final"><span class="lab">Borrowing cost capitalised${raw>totInt?' (capped at actual)':''}</span><span class="num">${inr(capd)}</span></div>`;
+}
+['gA','gAr','gB','gBr','e1','e1m','e2','e2m'].forEach(id=>document.getElementById(id).addEventListener('input',gCalc));
+gCalc();
+
+/* ================= commencement checker ================= */
+function dCalc(){
+  const ds=[['Expenditure incurred',d1.value],['Borrowing costs incurred',d2.value],['Necessary activities undertaken',d3.value]];
+  if(ds.some(d=>!d[1])){dOut.innerHTML='';return}
+  let latest=ds[0]; ds.forEach(d=>{if(d[1]>latest[1])latest=d});
+  const f=s=>new Date(s+'T00:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+  dOut.innerHTML=`<div class="result-final"><span class="lab">Commencement date — condition met last: ${latest[0].toLowerCase()}</span><span class="num">${f(latest[1])}</span></div>`;
+}
+['d1','d2','d3'].forEach(id=>document.getElementById(id).addEventListener('input',dCalc));
+dCalc();
+
+/* ================= vs AS16 flips ================= */
+const VS=[
+ ['QA measured at fair value','Ind AS 23: not required to apply the standard to BC on QAs measured at fair value (e.g. biological assets). AS 16: no such scope exclusion.'],
+ ['Repetitive inventories','Ind AS 23: not required for inventories manufactured in large quantities on a repetitive basis. AS 16: no such exclusion — applies to all inventories requiring substantial time to reach saleable condition.'],
+ ['Components of borrowing cost','Ind AS 23: interest computed by the effective interest rate method (Ind AS 109) — commitment charges and amortisation of discounts/premiums/ancillary costs are subsumed in EIR. AS 16 separately lists interest & commitment charges, amortisation of discounts/premiums, and amortisation of ancillary borrowing costs.'],
+ ['Interest on leases','Ind AS 23: interest on lease liabilities recognised per Ind AS 116. AS 16: finance charges on assets under finance leases.'],
+ ['Unrealised exchange loss & later gain','Ind AS 23: a later realised/unrealised gain on the same borrowing is recognised as an adjustment to interest, to the extent of the loss previously so recognised. AS 16: does not explicitly deal with this.'],
+ ['"Substantial period of time"','Ind AS 23: no explanation included. AS 16: explains it as twelve months.'],
+ ['Hyperinflationary economies','Ind AS 23: when Ind AS 29 applies, the inflation-compensating part of BC is expensed. AS 16: no clarification (India has no hyperinflation standard).'],
+ ['Parent & subsidiary borrowings in the weighted average','Ind AS 23: in some circumstances include all borrowings of parent + subsidiaries in the weighted average; in others, each subsidiary uses its own. AS 16: no such provision.'],
+ ['Disclosure of capitalisation rate','Ind AS 23: requires disclosure of the rate used. AS 16: no such requirement.'],
+ ['Foreign-currency comparison base','Ind AS 23: difference computed with reference to the functional currency. AS 16 read with AS 11: local currency vs foreign currency.']
+];
+document.getElementById('vsFlips').innerHTML=VS.map((v,i)=>
+ `<div class="flip"><div class="q"><span class="fno">№ ${i+1}</span>${v[0]}</div><div class="a">${v[1]}</div><div class="hint">tap to reveal</div></div>`).join('');
+
+/* ================= rapid drill ================= */
+const DRILL=[
+ ['Dairy company: cheese takes a substantially long production cycle. Borrowing cost on financing the cheese inventory?',true,'Permitted (Illustration 1). The repetitive-inventory exemption means capitalisation is not required — but it is allowed since the cycle is substantial.'],
+ ['Dividend paid on equity shares of the entity.',false,'Cost of equity is outside the scope of Ind AS 23 entirely (Example 1).'],
+ ['Interest the entity\u2019s own cash "could have earned" while funding construction.',false,'Notional borrowing cost can never be capitalised — only actual costs incurred.'],
+ ['3G licence acquired specifically to build a wireless network; it could alternatively be sold.',true,'Illustration 3 — first step of the wider network project; saleability is irrelevant.'],
+ ['Construction equipment bought for use across many building projects.',false,'Illustration 4 — ready for intended use on acquisition; not a qualifying asset.'],
+ ['Permit acquired for the construction of one specific building.',true,'Illustration 4 — specific to one building; part of the QA\u2019s cost.'],
+ ['Interest on a finance lease of a dockyard used solely to build a ship (during construction).',true,'Illustration 5 — capitalise until the ship\u2019s construction is complete.'],
+ ['Borrowing costs while land bought for building is held with no development activity.',false,'Holding without development is not a "necessary activity" — no capitalisation.'],
+ ['Borrowing costs during high-water season that routinely delays bridge construction in that region.',true,'A necessary, expected part of the process — capitalisation continues (¶3.6.2).'],
+ ['Borrowing costs from Oct to Jan while construction is halted and machinery is moved to another site.',false,'Extended interruption of active development — suspend (Example 4a).'],
+ ['Borrowing costs after 31-May when the complex was ready, because only 10% is rented by year-end.',false,'Example 5 — cease at readiness (31-May); occupancy level is irrelevant.'],
+ ['Dividend on redeemable preference shares classified as a financial liability, funding a QA.',true,'Example 6 — in-substance interest; capitalise per specific-borrowing principles.'],
+ ['Interest on an intra-group loan, in the borrowing subsidiary\u2019s own separate financial statements (QA built by it).',true,'Illustration 11 — capitalise the actual costs it incurs.'],
+ ['Part of borrowing cost that compensates for inflation, where Ind AS 29 applies.',false,'Expensed as required by Ind AS 29 — not capitalised.']
+];
+let di=0,dScore=0,dAns=0;
+const drillNextBtn=document.getElementById('drillNext');
+const drillResetBtn=document.getElementById('drillReset');
+function drillShow(){
+  drillCount.textContent=`SCENARIO ${di+1} / ${DRILL.length}`;
+  drillQ.textContent=DRILL[di][0]; drillFb.innerHTML='';
+  drillNextBtn.style.display='none'; drillResetBtn.style.display='none';
+  document.querySelectorAll('.drill-btns .btn').forEach(b=>b.disabled=false,b=>b.style.opacity=1);
+}
+function drillAns(v){
+  const [q,ans,why]=DRILL[di]; dAns++;
+  const ok=v===ans; if(ok)dScore++;
+  drillFb.innerHTML=`<span class="${ok?'ok':'no'}">${ok?'Correct.':'Not quite.'}</span> ${why}`;
+  drillScore.textContent=`Score ${dScore} / ${dAns}`;
+  if(di<DRILL.length-1){drillNextBtn.style.display='inline-block'}else{drillResetBtn.style.display='inline-block';
+    drillFb.innerHTML+=`<br><b style="color:var(--ink)">Drill complete — ${dScore}/${DRILL.length}.</b> ${dScore===DRILL.length?'Flawless. The judgement calls are yours.':'Re-run it until 14/14 feels boring.'}`}
+  document.querySelectorAll('.drill-btns .btn').forEach(b=>b.disabled=true);
+}
+function drillAdvance(){di++;drillShow()}
+function drillRestart(){di=0;dScore=0;dAns=0;drillScore.textContent='Score 0 / 0';drillShow()}
+drillShow();
+
+/* ================= TYK accordions ================= */
+const TYK=[
+ ['Q1 · Commencement — ships on order','Marine Transport Ltd ordered 3 ships on 1-Apr-20X0, paying 25% down from long-term bank borrowings. Delivery commences FY 20X7. On 1-Mar-20X2 the builder informs that production of one ship has commenced; no progress on the other two. Can borrowing costs be capitalised for FY 20X1 or FY 20X2?',
+ `<p>A ship is a qualifying asset (substantial construction period). Commencement requires all three conditions (para 17): expenditure incurred, borrowing costs incurred, and necessary activities undertaken.</p>
+  <p>Conditions (a) and (b) are met on 1-Apr-20X0 (down payment from borrowings). Condition (c) is met only on <b>1-Mar-20X2</b>, and only for <b>one ship</b>.</p>
+  <p><b>FY 31-Mar-20X1:</b> no capitalisation. <b>FY 31-Mar-20X2:</b> capitalise borrowing costs for the one ship from 1-Mar-20X2 to 31-Mar-20X2 only; all other borrowing costs are expensed.</p>`],
+ ['Q2 · General borrowings — treasury pool','X Ltd\u2019s treasury funds everything centrally. QA expenditure: ₹2,50,000 on 1-Jul-20X1 and ₹3,00,000 on 1-Dec-20X1. Borrowings: long-term loan @10% avg ₹10,00,000 (interest ₹1,00,000) and working-capital loan avg ₹5,00,000 (interest ₹65,000). Compute BC to capitalise.',
+ `<p>Capitalisation rate = total borrowing costs ÷ weighted-average total borrowings = 1,65,000 ÷ 15,00,000 = <b>11%</b>.</p>
+  <table class="tbl"><tr><td>₹2,50,000 × 11% × 9/12</td><td class="num">20,625</td></tr><tr><td>₹3,00,000 × 11% × 4/12</td><td class="num">11,000</td></tr><tr><td><b>Capitalised for FY 20X1-X2</b></td><td class="num"><b>31,625</b></td></tr></table>`],
+ ['Q3 · Capitalisation rate with changing balances','Head office built 1-Sep to 31-Dec-20X1. Spend: ₹1,00,000 (Sep) and ₹2,50,000 each in Oct–Dec, at month-starts. No specific loan. General borrowings during construction: 10% debentures FV ₹20 lakh; overdraft ₹5,00,000 (rising to ₹7,50,000 in Dec); OD interest 15% till 1-Oct, then 16%. Find the capitalisation rate.',
+ `<table class="tbl">
+  <tr><td>Debenture interest, Sep–Dec (20,00,000 × 10% × 4/12)</td><td class="num">66,667</td></tr>
+  <tr><td>OD ₹5,00,000 @15%, Sep</td><td class="num">6,250</td></tr>
+  <tr><td>OD ₹5,00,000 @16%, Oct–Nov</td><td class="num">13,333</td></tr>
+  <tr><td>OD ₹7,50,000 @16%, Dec</td><td class="num">10,000</td></tr>
+  <tr><td><b>Total finance cost, Sep–Dec</b></td><td class="num"><b>96,250</b></td></tr></table>
+  <p>Weighted-average borrowings = [(20,00,000×4)+(5,00,000×3)+(7,50,000×1)] ÷ 4 = <b>₹25,62,500</b>.</p>
+  <p>Capitalisation rate = 96,250 ÷ 25,62,500 = <b>3.756%</b> (for the four-month construction period).</p>`],
+ ['Q4 · Specific + general mix, with journal entry','K Ltd builds at est. ₹7 lakh from 1-Apr-20X1; specific loan ₹2 lakh @9%. Other loans: ₹7,00,000 @12% and ₹9,00,000 @11%. Spend: Apr ₹1,50,000; Aug ₹2,00,000; Oct ₹3,50,000; Jan ₹1,00,000. Complete 31-Jan-20X2. Interest to capitalise + journal entry.',
+ `<p>(i) General-pool rate = (84,000 + 99,000) ÷ 16,00,000 = <b>11.4375%</b>.</p>
+  <p>(ii) Allocate spend first to the ₹2,00,000 specific loan, then general (10 months Apr–Jan; later spends weighted to 31-Jan):</p>
+  <table class="tbl">
+  <tr><td>1-Apr: 1,50,000 (specific) × 9% × 10/12</td><td class="num">11,250</td></tr>
+  <tr><td>1-Aug: 50,000 (specific) × 9% × 10/12*</td><td class="num">3,750</td></tr>
+  <tr><td>1-Aug: 1,50,000 (general) × 11.4375% × 6/12</td><td class="num">8,578</td></tr>
+  <tr><td>1-Oct: 3,50,000 (general) × 11.4375% × 4/12</td><td class="num">13,344</td></tr>
+  <tr><td>1-Jan: 1,00,000 (general) × 11.4375% × 1/12</td><td class="num">953</td></tr>
+  <tr><td><b>Interest capitalised</b></td><td class="num"><b>37,875</b></td></tr></table>
+  <p style="font-size:12px;color:var(--ink3)">*As per the ICAI solution the specific tranche is computed for 10 months. Total cost of building = 8,00,000 + 37,875 = <b>₹8,37,875</b>.</p>
+  <p><b>Journal (31-1-20X2):</b> Building A/c Dr ₹8,37,875 → To Bank A/c ₹8,00,000, To Interest Payable (borrowing cost) ₹37,875. <i>(Alternatively, if interest is paid on capitalisation date: To Bank ₹8,37,875.)</i></p>`],
+ ['Q5 · Specific exhausted, spillover to general','Building contracted ₹22,00,000 on 1-Apr-20X1, complete end-Mar-20X2. Payments (₹\u2019000): 200 (1-Apr), 600 (30-Jun), 1,200 (31-Dec), 200 (31-Mar). Borrowings: 10% 4-yr note ₹7,00,000 specific (interest ₹65,000; investment income ₹20,000); 12.5% note ₹10,00,000; 10% note ₹15,00,000. BC to capitalise?',
+ `<p>Specific ₹7,00,000 absorbs the 1-Apr payment (200) and 500 of the 30-Jun payment; the excess goes to general borrowings:</p>
+  <table class="tbl"><tr><th>Date</th><th>To general</th><th>Weighted</th></tr>
+  <tr><td>1-Apr</td><td class="num">0</td><td class="num">0</td></tr>
+  <tr><td>30-Jun</td><td class="num">100</td><td class="num">100×9/12 = 75</td></tr>
+  <tr><td>31-Dec</td><td class="num">1,200</td><td class="num">1,200×3/12 = 300</td></tr>
+  <tr><td>31-Mar</td><td class="num">200</td><td class="num">0</td></tr>
+  <tr><td><b>Total</b></td><td class="num">—</td><td class="num"><b>375 (₹\u2019000)</b></td></tr></table>
+  <p>Capitalisation rate = (10,00,000×12.5% + 15,00,000×10%) ÷ 25,00,000 = <b>11%</b>.</p>
+  <table class="tbl"><tr><td>On specific loan</td><td class="num">65,000</td></tr>
+  <tr><td>On general: 3,75,000 × 11%</td><td class="num">41,250</td></tr>
+  <tr><td>Less: investment income on specific borrowings</td><td class="num">(20,000)</td></tr>
+  <tr><td><b>Capitalised</b></td><td class="num"><b>86,250</b></td></tr></table>`],
+ ['Q6 · Group — four sets of financial statements','Group: P (parent, management only), A Real Estate (borrowings ₹10,00,000 @7%; QA spend ₹15,40,000, built by B with 10% margin), B Construction (no borrowings; ₹10,00,000 QA spend from own cash), C Finance (raised ₹20,00,000 @7% externally, lent to P @8%; P used it to acquire a subsidiary). BC eligible for capitalisation in each entity\u2019s FS?',
+ `<p><b>Finance Co:</b> no QA expenditure — nil. <b>Construction Co:</b> no interest expense — nil. <b>Real Estate Co:</b> interest ₹70,000; QA expenditure (15,40,000) exceeds borrowings, so the <b>entire ₹70,000</b> is capitalised.</p>
+  <p><b>Consolidated (P):</b> general borrowings = 10,00,000 + 20,00,000 = ₹30,00,000 (the loan used to buy a subsidiary is <i>not excluded</i> from the pool). Group interest = 30,00,000 × 7% = ₹2,10,000.</p>
+  <p>QA expenditure, eliminating B\u2019s 10% margin: 15,40,000 ÷ 1.1 = 14,00,000; plus B\u2019s 10,00,000 = <b>₹24,00,000</b>. At 7%: eligible = <b>₹1,68,000</b> — capitalise only this, being lower than interest incurred.</p>`],
+ ['Q7 · Bonds issued at discount — EIR','Y Ltd issues 10% bonds (annual interest, 4-yr maturity), FV ₹2,00,000 at 10% discount, to finance a QA ready at end of year 2. EIR 13.39%. BC to capitalise?',
+ `<p>Recognise the borrowing at the transaction price ₹1,80,000. Capitalise EIR interest for years 1–2 only (cessation at readiness); years 3–4 expensed.</p>
+  <table class="tbl"><tr><th>Yr</th><th>Opening</th><th>EIR 13.39%</th><th>Paid</th><th>Closing</th></tr>
+  <tr><td>1</td><td class="num">1,80,000</td><td class="num">24,102</td><td class="num">20,000</td><td class="num">1,84,102</td></tr>
+  <tr><td>2</td><td class="num">1,84,102</td><td class="num">24,651</td><td class="num">20,000</td><td class="num">1,88,753</td></tr></table>
+  <p><b>Capitalise ₹48,753</b> to the qualifying asset.</p>`],
+ ['Q8 · Apportioning a mixed-use term loan','Nikka Ltd: term loan ₹620 lakh on 1-Apr-20X1 for factory modernisation. P&M installation ₹510 lakh (complete 30-Apr-20X2); ₹54 lakh advanced for additional assets (also installed 30-Apr-20X2); ₹56 lakh used for working capital. Interest paid FY 20X1-X2: ₹68.20 lakh. Management treats 12 months as substantial. Treatment? What if complete by 28-Feb-20X2?',
+ `<p><b>(i) Completion 30-Apr-20X2</b> (substantial period met):</p>
+  <table class="tbl"><tr><th>Use</th><th>Capitalise</th><th>P&amp;L</th></tr>
+  <tr><td>P&amp;M (68.20 × 510/620)</td><td class="num">56.10</td><td class="num">—</td></tr>
+  <tr><td>Advances for additional assets (× 54/620)</td><td class="num">5.94</td><td class="num">—</td></tr>
+  <tr><td>Working capital (× 56/620) — not a QA</td><td class="num">—</td><td class="num">6.16</td></tr>
+  <tr><td><b>Total (₹ lakh)</b></td><td class="num"><b>62.04</b></td><td class="num"><b>6.16</b></td></tr></table>
+  <p><b>(ii) Completion 28-Feb-20X2:</b> under 12 months — unless management specifically considers the period substantial, the assets are not qualifying assets and the <b>entire ₹68.20 lakh is expensed</b> to P&amp;L.</p>`]
+];
+document.getElementById('tykList').innerHTML=TYK.map((t,i)=>
+ `<div class="acc"><div class="acc-h"><span class="qn">${t[0].split(' ·')[0]}</span><span class="qt">${t[0].split('· ')[1]}</span><span class="chev">›</span></div>
+  <div class="acc-b"><p>${t[1]}</p><div class="soln"><div class="soln-tag">ICAI solution</div>${t[2]}</div></div></div>`).join('');
+
+/* ================= quiz ================= */
+const QUIZ=[
+ ['Borrowing costs not directly attributable to a qualifying asset are:',['Deferred and amortised over 5 years','Recognised as an expense when incurred','Adjusted against reserves','Capitalised at management\u2019s option'],1,'Core principle: only directly attributable costs are capitalised; everything else is expensed in the period incurred.'],
+ ['Which is outside the scope of Ind AS 23 altogether?',['Interest on lease liabilities','Exchange differences adjusting interest','Actual or imputed cost of equity, incl. equity-classified preference capital','EIR interest on debentures'],2,'The standard does not apply to cost of equity. The other three are components of borrowing costs.'],
+ ['Capitalisation is NOT REQUIRED (optional exemption) for borrowing costs on:',['All inventories','Qualifying assets measured at fair value','Intangible assets','Bearer plants'],1,'Optional exemptions: QAs at fair value (e.g. Ind AS 41 biological assets) and inventories mass-produced repetitively.'],
+ ['Interest expense within borrowing costs is calculated using:',['Nominal coupon rate','Straight-line amortisation of discount','Effective interest rate method per Ind AS 109','Market rate at reporting date'],2,'Ind AS 23 points to EIR per Ind AS 109; commitment charges and discount/premium amortisation are subsumed in EIR.'],
+ ['Which can never be a qualifying asset?',['Inventories with a long production cycle','A financial asset','An investment property under construction','A bearer plant'],1,'Financial assets, short-cycle inventories, and assets ready when acquired are never QAs.'],
+ ['On "substantial period of time", Ind AS 23:',['Defines it as 12 months','Defines it as 6 months','Gives no guidance — facts and circumstances; 12+ months likely substantial','Leaves it to the auditor'],2,'No bright line in Ind AS 23. AS 16 (not Ind AS 23) explains it as twelve months.'],
+ ['For specific borrowings, the amount capitalised is:',['Actual borrowing costs incurred','Actual costs less investment income on temporary investment of those borrowings','Capitalisation rate × expenditure','Actual costs plus investment income'],1,'Deduct income earned on temporarily parked specific funds (Illustration 7).'],
+ ['The capitalisation rate for general borrowings excludes:',['Bank overdrafts','Working-capital loans','Specific borrowings, until their asset is substantially complete','Debentures'],2,'Specific borrowings stay out of the pool until the related QA is substantially ready (Illustration 9).'],
+ ['Borrowing costs capitalised in a period can never exceed:',['10% of asset cost','Borrowing costs incurred in that period','The expenditure on the asset','The prior year\u2019s capitalisation'],1,'The absolute ceiling is actual BC incurred during the period (applied in TYK 6).'],
+ ['A specific loan remains outstanding after its asset is complete. It:',['Stays specific forever','Is derecognised','Becomes part of general borrowings while outstanding','Must be repaid immediately'],2,'Illustration 8 — once the asset is done, the loan\u2019s cost is avoidable for other QAs, so it joins the general pool.'],
+ ['Capitalisation commences when:',['Any one of the three conditions is met','Expenditure is incurred','Physical construction starts','All three conditions are first met — i.e. on the latest date'],3,'Expenditure + borrowing costs + necessary activities, cumulatively (Illustration 10: 19-Jun, not 18-Jul).'],
+ ['Activities "necessary to prepare the asset" include:',['Holding land with no development','Technical and administrative work such as obtaining permits before construction','Only physical construction','Marketing the completed asset'],1,'Pre-construction technical/admin work counts; passive holding does not.'],
+ ['Construction of a bridge is delayed by high water levels common in the region during the season. Capitalisation:',['Is suspended','Continues','Ceases permanently','Is reversed'],1,'A temporary delay that is a necessary part of the process — capitalisation continues.'],
+ ['H Ltd\u2019s complex was ready 31-May but only 10% rented by 31-Mar. Capitalise borrowing costs up to:',['31-Mar (year end)','30-Jun (expected let-out)','31-May (readiness)','Until fully rented'],2,'Cessation follows readiness for intended use, not occupancy (Example 5).'],
+ ['A business park\u2019s buildings are each usable individually while others are still being built. Capitalisation:',['Continues for all until the last building is done','Ceases per completed part','Never commences','Is suspended'],1,'Cease per part when each usable part is substantially complete; contrast a sequential steel mill (whole-asset).'],
+ ['Ind AS 23 requires disclosure of:',['Amount capitalised only','Amount capitalised and the capitalisation rate used','Rate only','Lender-wise borrowing details'],1,'Two items: amount + rate. Rate disclosure is absent in AS 16 (difference 9).'],
+ ['Dividend on redeemable preference shares classified as a financial liability under Ind AS 32:',['Never a borrowing cost','Is in-substance interest — can meet the borrowing-cost definition and be capitalised','Always charged to reserves','Outside Ind AS scope'],1,'Example 6 — capitalise per specific-borrowing principles.'],
+ ['Parent borrows; subsidiary (no borrowings of its own) constructs the QA. In the subsidiary\u2019s OWN financial statements:',['Capitalise the parent\u2019s interest','Capitalise notional interest','Capitalise nothing — it has incurred no borrowing costs','Capitalise the group\u2019s weighted-average cost'],2,'Capitalisation may be right in group FS; the developing entity capitalises nothing itself unless it has (intra-group) borrowings.'],
+ ['Under Ind AS 23, eligible forex differences on a foreign-currency loan are limited to:',['The full exchange loss always','The difference between functional-currency borrowing cost and the actual foreign-currency cost','5% of the loan','Interest at the foreign rate only'],1,'min(exchange loss, benchmark − actual interest); the excess is expensed (Illustration 6: 51,000 of 60,000).'],
+ ['The expenditure base for applying the capitalisation rate is reduced by:',['Depreciation','Progress payments and government grants received for the asset','Trade payables','Future committed costs'],1,'Para 3.5.3 — only cash/asset-transfer/interest-bearing-liability expenditures count, net of progress payments and grants.']
+];
+let qi=0,qScore=0,qLocked=false;
+function quizRender(){
+  const sh=document.getElementById('quizShell');
+  if(qi>=QUIZ.length){
+    const pct=Math.round(qScore/QUIZ.length*100);
+    sh.innerHTML=`<div class="quiz-done"><div class="big">${qScore} / ${QUIZ.length}</div>
+    <p>${pct>=90?'Exam-ready on concepts. Now hammer the TYK practicals on paper.':pct>=70?'Solid base — revisit the sections behind your misses, then re-run.':'Go back through the map section-by-section, then retake. Mastery is repetition.'}</p>
+    <button class="btn bcap" onclick="quizReset()">Retake quiz ↺</button></div>`;return;
+  }
+  const [q,opts,ans,expl]=QUIZ[qi]; qLocked=false;
+  sh.innerHTML=`<div class="q-meta"><span>QUESTION ${qi+1} OF ${QUIZ.length}</span><span>SCORE ${qScore}</span></div>
+  <div class="q-text">${q}</div>
+  <div class="q-opts">${opts.map((o,i)=>`<div class="q-opt" data-i="${i}"><span class="ol">${'ABCD'[i]}</span><span>${o}</span></div>`).join('')}</div>
+  <div class="q-expl" id="qExpl"><b>Why:</b> ${expl}</div>
+  <div class="q-foot"><span class="q-score">Answer to continue</span><button class="btn ghost" id="qNext" style="display:none" onclick="qi++;quizRender()">Next →</button></div>`;
+  sh.querySelectorAll('.q-opt').forEach(el=>el.addEventListener('click',()=>{
+    if(qLocked)return; qLocked=true;
+    const pick=+el.dataset.i, right=pick===ans; if(right)qScore++;
+    sh.querySelectorAll('.q-opt').forEach(o=>{
+      const i=+o.dataset.i;
+      if(i===ans)o.classList.add('correct'); else if(i===pick)o.classList.add('wrong'); else o.classList.add('dim');
+    });
+    document.getElementById('qExpl').style.display='block';
+    document.getElementById('qNext').style.display='inline-block';
+    sh.querySelector('.q-score').textContent=right?'Correct ✓':'Noted — read the why.';
+  }));
+}
+function quizReset(){qi=0;qScore=0;quizRender()}
+quizRender();
+</script>
+</body>
+</html>
